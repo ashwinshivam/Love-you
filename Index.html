@@ -55,20 +55,53 @@
   </div>
 
   <script>
+    const responses = [
+      "Nidhi, do you love me? 💭",
+      "Are you sure, Nidhi? 🤔",
+      "Think again Nidhi... ❤️",
+      "Nidhi, dil se socho na! 💓",
+      "Man jao Nidhi... 😊",
+      "Bas ek baar 'Yes' bol do Nidhi 🥰",
+      "Don't break my heart Nidhi 💔",
+      "I'll keep asking Nidhi... 🙏",
+      "You're my everything, Nidhi 🌟",
+      "Life is incomplete without you, Nidhi 🎭",
+      "My heart beats for you, Nidhi 💓",
+      "You're my sunshine, Nidhi ☀️",
+      "Please say yes, Nidhi 🌈",
+      "You complete me, Nidhi 🤗",
+      "My love for you is endless, Nidhi ♾️",
+      "You're my dream come true, Nidhi ✨",
+      "I'm crazy about you, Nidhi 🤪",
+      "You're my happiness, Nidhi 😄",
+      "My world revolves around you, Nidhi 🌍",
+      "You're my forever, Nidhi 🕊️",
+      "I adore you, Nidhi 😍",
+      "You're perfect for me, Nidhi 💫",
+      "My heart chose you, Nidhi 💖",
+      "You're my soulmate, Nidhi 👫",
+      "I'm yours forever, Nidhi 🔐",
+      "You make me better, Nidhi 🌟",
+      "My reason to smile is you, Nidhi 😊",
+      "I'm blessed to have you, Nidhi 🙌",
+      "My heart says yes, Nidhi! 💘",
+      "Ashwin again: Nidhi, do you love me? 😅"
+    ];
+
+    let noCount = 0;
     const responseElement = document.getElementById('response');
     const yesBtn = document.getElementById('yesBtn');
     const noBtn = document.getElementById('noBtn');
     const thankYouElement = document.getElementById('thankYou');
     const buttons = document.getElementById('buttons');
 
-    // Jab NO button press hoga tab bhi Ashwin fir se wahi poochhega
     noBtn.addEventListener('click', function () {
-      responseElement.innerHTML = "<span class='names'>Ashwin:</span> Nidhi, do you love me?";
+      responseElement.innerHTML = "<span class='names'>Ashwin:</span> " + responses[noCount % responses.length];
+      noCount++;
       const currentSize = parseInt(getComputedStyle(yesBtn).fontSize);
       yesBtn.style.fontSize = currentSize + 2 + 'px';
     });
 
-    // Jab YES press hoga tab Thank You message
     yesBtn.addEventListener('click', function () {
       responseElement.innerHTML =
         "<span class='names'>Nidhi:</span> Yay Ashwin! You made me the happiest! 🎉";
@@ -94,7 +127,6 @@
       }
     }
 
-    // Initial fade in for existing hearts
     setTimeout(() => {
       document.querySelectorAll('.heart').forEach((heart) => {
         heart.style.opacity = '1';
